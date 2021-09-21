@@ -1,0 +1,3 @@
+Een programmeertaal is een leesbare taal waarmee instructies voor de computer worden geschreven.
+Deze set van instructies worden bij het compileren omgezet tot assembly code. 
+De assembly-code wordt achteraf omgezet in machine code, die de CPU kan verstaan.  
