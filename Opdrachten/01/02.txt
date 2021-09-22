@@ -1,0 +1,3 @@
+
++ Het verschilt van paradigma tot paradigma af hoe objecten worden behandeld in het geheugen.
+Dit typeert aan de syntaxsis van de programmeertaal. 
