@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,9 +12,9 @@ public class Codebreaker implements MastermindStrategy {
     private int turns = 0;
     private int positions = 0;
 
-    private List<int[]> guesses;
-    private List<Integer> whitePinsList;
-    private List<Integer> orangePinsList;
+    private List<int[]> guesses = new ArrayList<>();
+    private List<Integer> whitePinsList = new ArrayList<>();
+    private List<Integer> orangePinsList = new ArrayList<>();
 
     public Codebreaker(MastermindGame game){
         colors = game.getColors();

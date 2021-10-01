@@ -81,8 +81,6 @@ public class MastermindGame {
                     }
                     catch(Exception e){
                         System.out.println(e.getMessage());
-                    }
-                    finally{
                         j--;
                     }
                 }
@@ -90,7 +88,7 @@ public class MastermindGame {
             int orangePins, whitePins;
 
 
-            while (i < getTurns() && codeCracked == false) {
+            while (i <= getTurns() && codeCracked == false) {
                 orangePins = 0;
                 whitePins = 0;
                 System.out.printf("Attempt %d \n", i);
@@ -110,15 +108,13 @@ public class MastermindGame {
                             }
                         }catch(Exception e){
                             System.out.println(e.getMessage());
-                        }
-                        finally{
                             j--;
                         }
                     }
                 } else {
                     chosenColors = strategy.Guess(whitePins, orangePins);
                     for (int j = 0; j < chosenColors.length; j++) {
-                        System.out.printf("Position %d: %d", j + 1, chosenColors[j]);
+                        System.out.printf("Position %d: %d \n", j + 1, chosenColors[j]);
                     }
                 }
 
@@ -150,7 +146,7 @@ public class MastermindGame {
                 i++;
             }
 
-            if (codeCracked) System.out.println("The code couldn't be cracked.");
+            if (!codeCracked) System.out.println("The code couldn't be cracked.");
             else System.out.println("The code has been cracked!");
 
         }catch(NoStrategyException e){
