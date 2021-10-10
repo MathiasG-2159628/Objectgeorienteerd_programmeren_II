@@ -3,6 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * @author Mathias Gielen
+ **/
 public class MastermindGame {
     private int colors = 6;
     private int turns = 12;
@@ -10,21 +13,33 @@ public class MastermindGame {
     private Codemaker codeMaker;
     private MastermindStrategy strategy;
 
+    /**
+     * Default constructor; started game will throw an exception if there is no strategy present
+     */
     public MastermindGame(){
         codeMaker = new Codemaker();
     }
 
+    /**
+     * @param strategy != null
+     */
     public void setStrategy(MastermindStrategy strategy) {
         this.strategy = strategy;
     }
 
+    /**
+     *
+     * @param colors >= 1
+     * @param turns >= 1
+     * @param positions >= 1
+     * @param strategy != null
+     */
     public MastermindGame(int colors, int turns, int positions, MastermindStrategy strategy) {
         this.colors = colors;
         this.turns = turns;
         this.positions = positions;
         codeMaker = new Codemaker();
         this.strategy = strategy;
-
     }
 
     public int getColors() {
@@ -51,6 +66,9 @@ public class MastermindGame {
         this.positions = positions;
     }
 
+    /**
+     * @param isCodebreaker != null
+     **/
     public void StartGame(boolean isCodebreaker){
 
         try {
@@ -148,6 +166,11 @@ public class MastermindGame {
 
             if (!codeCracked) System.out.println("The code couldn't be cracked.");
             else System.out.println("The code has been cracked!");
+
+            System.out.println("The code was: ");
+            for (int x : code) {
+                System.out.println(x);
+            }
 
         }catch(NoStrategyException e){
             System.out.println(e.getMessage());

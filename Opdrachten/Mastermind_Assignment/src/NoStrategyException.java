@@ -1,3 +1,6 @@
+/**
+ * @author Mathias Gielen
+ **/
 public class NoStrategyException extends Exception {
     @Override
     public String getMessage(){

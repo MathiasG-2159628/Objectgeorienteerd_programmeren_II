@@ -1,4 +1,12 @@
+/**
+ * @author Mathias Gielen
+ **/
 public class Codemaker {
+    /**
+     * @param colors >= 1
+     * @param positions >= 1
+     * @return != null
+     */
     public int[] GenerateColorCode(int colors, int positions){
         int[] code=new int[positions];
 
