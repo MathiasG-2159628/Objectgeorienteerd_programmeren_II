@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException,
-            IllegalAccessException, InvocationTargetException {
-        StringBuffer buffer = new StringBuffer();
+            IllegalAccessException, InvocationTargetException, InstantiationException {
         System.out.println("What method to invoke?");
         Scanner scanner  = new Scanner(System.in);
         String input = scanner.next();
@@ -17,6 +16,7 @@ public class Main {
         Class<?> cl = Class.forName(input_split[0] + "." + input_split[1] + "." + input_split[2]);
 
         Method method = cl.getDeclaredMethod(input_split[3], partypes);
+        Method tostringmethod = cl.getDeclaredMethod("toString",null );
         int paramCount = method.getParameterCount();
 
         System.out.println("Needs maximum " + paramCount + " parameters. How many will you provide?");
@@ -30,6 +30,12 @@ public class Main {
             arglist[i] = parameter;
         }
 
-        method.invoke(buffer, arglist);
+        Object obj = cl.newInstance();
+        Object result = method.invoke(obj, arglist);
+        Object toStringResult = tostringmethod.invoke(obj, null);
+
+        System.out.println("Uitvoering gelukt!");
+        System.out.println(toStringResult);
+        System.out.println(result);
     }
 }
