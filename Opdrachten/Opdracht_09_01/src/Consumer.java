@@ -8,11 +8,11 @@ public class Consumer extends Thread {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         while(true) {
             if (producer.array.size() == 0) {
                 try {
-                    sleep(2000);
+                    wait(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
